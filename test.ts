@@ -3,7 +3,7 @@ import { assertEquals } from "testing/asserts.ts";
 
 const CHROME_BIN = Deno.env.get("CHROME_BIN");
 
-    Deno.test(`${"E2E test"}`, async (t) => {
+    Deno.test(`$"E2E test"}, async (t) => {
   /* Start Sinco */
   const { browser, page } = await buildFor("chrome", {
     binaryPath: CHROME_BIN,
