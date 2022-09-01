@@ -3,14 +3,11 @@ import { assertEquals } from "testing/asserts.ts";
 
 const CHROME_BIN = Deno.env.get("CHROME_BIN");
 
-    Deno.test ("E2E test", () => {
-    const { browser, page } = await buildFor("chrome", {
+Deno.test("E2E test", async (t) => {
+  /* Start Sinco */
+  const { browser, page } = await buildFor("chrome", {
     binaryPath: CHROME_BIN,
   });
-    const index = "http://localhost:8000/";
-   assertEquals(await page.location(), "https://www.active-connector.com/");
-  });
-
 
   const index = "http://localhost:8000/";
 
