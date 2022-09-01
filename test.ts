@@ -23,6 +23,38 @@ Deno.test("E2E test", async (t) => {
   });
 
 await page.location(index);
+  function connect(url: string): void {
+    ws = new WebSocket(url, protocol); 
+    ws.onopen = onOpen;
+    ws.onmessage = onMessage;
+    ws.onerror = onError;
+    ws.onclose = onClose;
+}
+//indicates that the connection is ready to send and receive data
+
+function onOpen(event: any): void {
+    console.log("connected");
+//$("#btnConnect").html("Connected");
+
+    btnConnect.innerHTML = "Connected";
+
+}
+//An event listener to be called when a message is received from the server
+
+function onMessage(event: any): void {
+}
+//An event listener to be called when an error occurs. This is a simple event named "error".
+
+function onError(event: any): void {
+    console.log(JSON.stringify(event.data));
+}
+//An event listener to be called when the WebSocket connection's readyState changes to CLOSED.
+
+function onClose(event: any): void {
+    console.log(JSON.stringify(event.data));
+}
+  
+  
 
   await t.step("input is empty", async () => {
     const input = await page.querySelector("input");
