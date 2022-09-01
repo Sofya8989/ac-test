@@ -22,7 +22,8 @@ Deno.test("E2E test", async (t) => {
     assertEquals(await page.location(), "https://www.active-connector.com/");
   });
 
-  await page.location(index);
+ async function getJson(index: string) {
+    return JSON.parse(await page.location(index));
 
   await t.step("input is empty", async () => {
     const input = await page.querySelector("input");
