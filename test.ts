@@ -2,8 +2,12 @@ import { buildFor } from "sinco/mod.ts";
 import { assertEquals } from "testing/asserts.ts";
 
 const CHROME_BIN = Deno.env.get("CHROME_BIN");
-
-Deno.test("E2E test", async (t) => {
+  for {
+    Deno.test(`${"E2E test"}`, async (t) => {
+      await t.step("generate()", async (t) => {
+        await t.step(
+          "Start Sinco ${"E2E test"} headless as a subprocess",
+          async () => {
   /* Start Sinco */
   const { browser, page } = await buildFor("chrome", {
     binaryPath: CHROME_BIN,
