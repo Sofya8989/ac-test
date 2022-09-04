@@ -34,7 +34,7 @@ Deno.test("E2E test", async () => {
  
     const input = await page.querySelector("input");
     assertEquals(await input.value(), "");
-  });
+  );
 
     const error = await page.evaluate(() =>
       document.querySelector("p")?.innerText
