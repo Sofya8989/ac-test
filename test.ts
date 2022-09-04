@@ -65,7 +65,6 @@ Deno.test("E2E test", async () => {
       return document.querySelector("div")?.innerText;
     });
     assertEquals(body, `Job "${name}" is not available`);
-  });
 
   await page.location(index);
 
