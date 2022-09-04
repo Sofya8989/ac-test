@@ -13,18 +13,15 @@ Deno.test("E2E test", async (t) => {
 
   /* Beginning of tests */
 
-await t.step("click the logo", async () => {
+  await t.step("click the logo", async () => {
     await page.location(index);
 
     const image = await page.querySelector("img");
     await image.click({ waitFor: "navigation" });
 
     assertEquals(await page.location(), "https://www.active-connector.com/");
-    console.log("navigation");
-}
-image();
-  );
-  
+  });
+
   await page.location(index);
 
   await t.step("input is empty", async () => {
