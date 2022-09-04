@@ -88,4 +88,3 @@ Deno.test("E2E test", async () => {
 
   await browser.close();
   assertEquals(location, "http://localhost:8000/");
-});
