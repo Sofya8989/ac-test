@@ -13,7 +13,7 @@ Deno.test("E2E test", async (t) => {
 
   /* Beginning of tests */
 
-  await t.step("click the logo", async () => {
+  await t.step("click the logo", async (t) => {
     await page.location(index);
 
     const image = await page.querySelector("img");
