@@ -1,10 +1,10 @@
 import { buildFor } from "sinco/mod.ts";
 import { assertEquals } from "testing/asserts.ts";
 
-const CHROME_BIN = Deno.env.get("CHROME_BIN");
-
 Deno.test("E2E test", async (t) => {
   /* Start Sinco */
+
+const CHROME_BIN = Deno.env.get("CHROME_BIN");
   const { browser, page } = await buildFor("chrome", {
     binaryPath: CHROME_BIN,
   });
@@ -13,15 +13,17 @@ Deno.test("E2E test", async (t) => {
 
   /* Beginning of tests */
 
-  await t.step("click the logo", async () => {
-    await page.location(index);
-
+  const await t.step("click the logo" = async (T) => {
+    const {string} = await page.location(index);
+return string;
+    
     const image = await page.querySelector("img");
-    await image.click({ waitFor: "navigation" });
-
+    const await image.click({ waitFor: "navigation" });
     assertEquals(await page.location(), "https://www.active-connector.com/");
-  });
-
+   navigation(page.location(index))
+    })
+    return  resultAsync
+}
   await page.location(index);
 
   await t.step("input is empty", async () => {
